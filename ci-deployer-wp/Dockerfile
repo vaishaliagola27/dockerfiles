@@ -29,6 +29,7 @@ RUN apt-get update && \
     subversion \
     zip unzip \
     wget \
+    gnupg \
     mariadb-server \
     libmemcached-dev libmemcached11 \
     python-pip \
