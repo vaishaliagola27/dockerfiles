@@ -30,7 +30,7 @@ RUN apt-get update && \
     zip unzip \
     wget \
     gnupg \
-    mariadb-server \
+    mysql-client \
     libmemcached-dev libmemcached11 \
     python-pip \
     python-dev \
@@ -57,9 +57,6 @@ RUN cd /tmp \
   && make install \
   && echo "extension=/usr/local/lib/php/extensions/no-debug-non-zts-20160303/memcache.so" > /usr/local/etc/php/conf.d/ext-memcache.ini  \
   && rm -rf /tmp/memcache
-
-# Start MYSQL Service and set root password as root
-RUN service mysql start && mysql -e "create database wp" && mysqladmin -u root password root
 
 # Setup the Composer installer
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
